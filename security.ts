@@ -1,0 +1,3 @@
+import {NextRequest} from "next/server";
+export function requestKey(r:NextRequest){return r.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim()??r.headers.get("x-forwarded-for")?.split(",")[0]?.trim()??"anonymous"}
+export function securityHeaders(){return {"X-Content-Type-Options":"nosniff","X-Frame-Options":"DENY","Referrer-Policy":"strict-origin-when-cross-origin","Permissions-Policy":"camera=(), microphone=(), geolocation=()","Content-Security-Policy":"default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"}}

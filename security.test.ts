@@ -1,0 +1,1 @@
+import {describe,it,expect} from "vitest"; import {securityHeaders} from "../src/lib/security"; describe("headers",()=>it("adds defensive headers",()=>expect(securityHeaders()["X-Frame-Options"]).toBe("DENY")))
